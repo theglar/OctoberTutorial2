@@ -3,12 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:OctoberTutorial2"
              x:Class="OctoberTutorial2.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Signin" Activated="Signin_Activated"/>
+        <ToolbarItem Text="Bluetooth" Activated="Connect_Activated"/>
+        <ToolbarItem Text="Graph" Activated="Graph_Activated"/>
+        <ToolbarItem Text="Setup" Activated="Setup_Activated"/>
+        <ToolbarItem Text="+" Activated="Add_Activated" />
+        <ToolbarItem Text="^" Activated="Measure_Activated" />
+    </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ListView x:Name="booksListView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}"
+                          Detail="{Binding Author}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+    <ListView x:Name="measurementsView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding UserName}"
+                          Detail="{Binding Pressure}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
 
 </ContentPage>

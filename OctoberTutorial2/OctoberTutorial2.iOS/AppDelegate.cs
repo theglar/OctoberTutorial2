@@ -22,8 +22,12 @@ namespace OctoberTutorial2.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            string fileName = "measurements_db.sqlite";
+            string fileLocation = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string full_path = Path.Combine(fileLocation, fileName);
+
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(full_path));
 
             return base.FinishedLaunching(app, options);
         }
